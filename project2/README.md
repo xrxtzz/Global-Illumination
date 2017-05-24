@@ -1,4 +1,4 @@
-#Project 2
+# Project 2
 
 This is the code for ECS275 Project 2, which is modified from previous Project 1.
 
