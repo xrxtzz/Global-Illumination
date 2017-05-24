@@ -1,7 +1,8 @@
 # Project 1
-This is the code for ECS275 Homework 1, which is modified from provided reference code. 
+
+This is the code for ECS275 Project 1, which is modified from provided reference code. 
 In addition to originally implemented rendering scene that includes spheres and planes, it can now render triangles thus also polygons. Also specular reflection is added.
-To compile and run the code, use "cmake ." to generate Makefile, "make" to compile and then "./specter [testscene filename]" to run the code.
+To compile and run the code, use "cmake ." to generate Makefile, "make" to compile and then "./specter [testscene filename]" to run the code. You may need to delete CMakeCache.txt first before cmake.
 
 Modification on original reference includes: 
  - New files Triangle.h and Triangle.cc file that add and implement the class Triangle, which is also a subclass of Primitive, similar to Sphere and Plane.

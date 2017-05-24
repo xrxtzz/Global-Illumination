@@ -1,8 +1,10 @@
+#Project 2
+
 This is the code for ECS275 Project 2, which is modified from previous Project 1.
 
 In this homework, anti-aliasing, depth of field and motion blur effects are added to the original recursive ray-tracing program.
 
-To compile and run the code, use "cmake ." to generate the Makefile, "make" to compile and then "./specter [testscene filename]" to run the code.
+To compile and run the code, use "cmake ." to generate the Makefile, "make" to compile and then "./specter [testscene filename]" to run the code. You may need to delete CMakeCache.txt first before cmake.
 
 Algorithms in this project comes from the paper "Distributed Ray Tracing" by Robert Cook. Algorithms in this project are mainly implemented in render() function in scene.cc.
 
