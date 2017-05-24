@@ -1,0 +1,72 @@
+
+#include "LambertianMaterial.h"
+#include "HitRecord.h"
+#include "Light.h"
+#include "Point.h"
+#include "Primitive.h"
+#include "Ray.h"
+#include "RenderContext.h"
+#include "Scene.h"
+#include "Vector.h"
+#include "Math.h"
+using namespace std;
+
+LambertianMaterial::LambertianMaterial(const Color& color, float Kd, float Ka)
+  :color(color), Kd(Kd), Ka(Ka)
+{
+}
+
+LambertianMaterial::~LambertianMaterial()
+{
+}
+
+void LambertianMaterial::shade(Color& result, const RenderContext& context,
+                               const Ray& ray, const HitRecord& hit, const Color&, int) const
+{
+  const Scene* scene = context.getScene();
+  const vector<Light*>& lights = scene->getLights();
+  Point hitpos = ray.origin()+ray.direction()*hit.minT();
+  Vector normal;
+  hit.getPrimitive()->normal(normal, context, hitpos, ray, hit);
+  double costheta = Dot(normal, ray.direction());
+  if(costheta > 0)
+    normal = -normal;
+
+  const Object* world = scene->getObject();
+
+  Color light = scene->getAmbient()*Ka;
+
+  	HitRecord refl_hit(1000);
+	Ray refl_ray(hitpos, -2 * Dot(normal, ray.direction()) * normal + ray.direction());
+	world->intersect(refl_hit, context, refl_ray);
+	if (refl_hit.getPrimitive()) {
+		const Material* matl = refl_hit.getMaterial();
+		Color addon;
+		Color atten(1,1,1);
+		matl->shade(addon, context, refl_ray, refl_hit, atten, 0);
+		light += addon * Kd;
+	}
+  
+#if 0
+  for(vector<Light*>::const_iterator iter = lights.begin(); iter != lights.end(); iter++){
+#else
+    Light*const* begin = &lights[0];
+    Light*const* end = &lights[0]+lights.size();
+    while(begin != end){
+#endif
+    Color light_color;
+    Vector light_direction;
+    double dist = (*begin++)->getLight(light_color, light_direction, context, hitpos);
+    double cosphi = Dot(normal, light_direction);
+    if(cosphi > 0){
+      // Cast shadow rays...
+      HitRecord shadowhit(dist);
+      Ray shadowray(hitpos, light_direction);
+      world->intersect(shadowhit, context, shadowray);
+      if(!shadowhit.getPrimitive())
+        // No shadows...
+        light += light_color*(Kd*cosphi);
+	  }
+    }
+  result = light*color;
+}
