@@ -1,0 +1,421 @@
+// This is a test scene for Specter.  Try running "specter test.scn".
+
+xres 512
+yres 512
+sample 1
+photon 50
+F 1.0
+D 1.055
+n 2
+motion [0.0, 0.0, 0.2]
+
+EnableAntiAliasing 0
+EnableDepthofField 0
+EnableMotionBlur 0
+
+
+
+filename "image.ppm"
+
+camera pinhole {
+  eye [ -24.0, 0, 0.0 ]
+  lookat [ 24.0, 0.0, 0.0 ]
+  up [ 0.0, 0.0, 1.0 ]
+  hfov 30.0
+}
+
+background constant {
+  color [ 0.1, 0.1, 0.1 ]
+}
+
+ambient [ 0.5, 0.5, 0.5 ]
+
+light area {
+  position [ 0, 0, 5.0 ]
+  color [ 0.9, 0.9, 0.9 ]
+  size 1.5
+}
+
+scene group {
+  triangle {
+    material specular {
+       color [1.0,1.0, 1.0]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.3
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [-5.0,-5.0,-5.0]
+    point2 [5.0,-5.0,-5.0]
+    point3 [5.0,5.0,-5.0]
+  }
+  triangle {
+    material specular {
+       color [1.0, 1.0, 1.0]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.3
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [5.0,5.0,-5.0]
+    point2 [-5.0,5.0,-5.0]
+    point3 [-5.0,-5.0,-5.0]
+  }
+
+
+  triangle {
+    material specular {
+       color [0.5, 0.5, 0.5]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.3
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [5.0,5.0,-5.0]
+    point2 [5.0,-5.0,-5.0]
+    point3 [5.0,5.0,5.0]
+  }
+triangle {
+    material specular {
+       color [0.5, 0.5, 0.5]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.3
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [5.0,6.0,5.0]
+    point2 [5.0,-5.0,5.0]
+    point3 [5.0,-5.0,-6.0]
+  }
+
+triangle {
+    material specular {
+       color [1.0, 0.1, 0.1]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [-5.0,5.0,5.0]
+    point2 [5.0,5.0,-5.0]
+    point3 [-5.0,5.0,-5.0]
+  }
+triangle {
+    material specular {
+       color [1.0, 0.1, 0.1]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [-5.0,5.0,5.0]
+    point2 [5.0,5.0,-5.0]
+    point3 [5.0,5.0,5.0]
+  }
+
+triangle {
+    material specular {
+       color [0.1, 1.0, 0.1]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [-5.0,-5.0,-5.0]
+    point2 [5.0,-5.0,-5.0]
+    point3 [-5.0,-5.0,5.0]
+  }
+triangle {
+    material specular {
+       color [0.1, 1.0, 0.1]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [5.0,-5.0,5.0]
+    point2 [5.0,-5.0,-5.0]
+    point3 [-5.0,-5.0,5.0]
+  }
+  
+  triangle {
+	material specular {
+		color [0.9, 0.9, 0.9]
+		Kd 0.1
+		Ka 0.8
+		Ks 0.3
+	}
+	normal [0.0, 0.0, 0.0]
+  point1 [5.0,5.0,5.0]
+    point2 [-5.0,5.0,5.0]
+    point3 [-5.0,-5.0,5.0]
+  }
+  triangle {
+  material specular {
+       color [0.9,0.9, 0.9]
+       Kd 0.1
+       Ka 0.8
+       Ks 0.3
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [-5.0,-5.0,5.0]
+    point2 [5.0,-5.0,5.0]
+    point3 [5.0,5.0,5.0]
+  }
+  
+
+  
+  
+  triangle {
+    material specular {
+       color [0.9, 0.9, 0.9]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [4.0, 4.0, 2.0]
+    point2 [5.0, 1.0, 2.0]
+    point3 [2.0, 0.0, 2.0]
+  }
+  triangle {
+    material specular {
+       color [0.9, 0.9, 0.9]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [4.0, 4.0, 2.0]
+    point2 [1.0, 3.0, 2.0]
+    point3 [2.0, 0.0, 2.0 ]
+  }
+  
+  triangle {
+    material specular {
+       color [0.9, 0.9, 0.9]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [4.0, 4.0, 2.0]
+    point2 [4.0, 4.0, -5.0]
+    point3 [5.0, 1.0, 2.0]
+  }
+  triangle {
+    material specular {
+       color [0.9, 0.9, 0.9]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [4.0, 4.0, -5.0]
+    point2 [5.0, 1.0, -5.0]
+    point3 [5.0, 1.0, 2.0]
+  }
+  
+    triangle {
+    material specular {
+       color [0.9, 0.9, 0.9]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [1.0, 3.0, 2.0]
+    point2 [1.0, 3.0, -5.0]
+    point3 [2.0, 0.0, 2.0]
+  }
+  triangle {
+    material specular {
+       color [0.9, 0.9, 0.9]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [2.0, 0.0, 2.0]
+    point2 [1.0, 3.0, -5.0]
+    point3 [2.0, 0.0, -5.0]
+  }
+  
+    triangle {
+    material specular {
+       color [0.9, 0.9, 0.9]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [4.0, 4.0, 2.0]
+    point2 [1.0, 3.0, 2.0]
+    point3 [1.0, 3.0, -5.0]
+  }
+  triangle {
+    material specular {
+       color [0.9, 0.9, 0.9]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [4.0, 4.0, 2.0]
+    point2 [4.0, 4.0, -5.0]
+    point3 [1.0, 3.0, -5.0]
+  }
+  
+  triangle {
+    material specular {
+       color [0.9, 0.9, 0.9]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [5.0, 1.0, 2.0]
+    point2 [2.0, 0.0, 2.0]
+    point3 [2.0, 0.0, -5.0]
+  }
+  triangle {
+    material specular {
+       color [0.9, 0.9, 0.9]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [5.0, 1.0, 2.0]
+    point2 [5.0, 1.0, -5.0]
+    point3 [2.0, 0.0, -5.0]
+  }
+ 
+	//second rect
+  triangle {
+    material specular {
+       color [0.9, 0.9, 0.9]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [-1.0, 1.0, -1.5]
+    point2 [-3.0, -3.0, -1.5]
+    point3 [1.0, 0.0, -1.5]
+  }
+  triangle {
+    material specular {
+       color [0.9, 0.9, 0.9]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [1.0, 0.0, -1.5]
+    point2 [-1.0, -4.0, -1.5]
+    point3 [-3.0, -3.0, -1.5]
+  }
+  
+  triangle {
+    material specular {
+       color [0.9, 0.9, 0.9]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [-1.0, 1.0, -1.5]
+    point2 [-1.0, 1.0, -5.0]
+    point3 [-3.0, -3.0, -5.0]
+  }
+  triangle {
+    material specular {
+       color [0.9, 0.9, 0.9]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [-3.0, -3.0, -5.0]
+    point2 [-3.0, -3.0, -1.5]
+    point3 [-1.0, 1.0, -1.5]
+  }
+  
+    triangle {
+    material specular {
+       color [0.9, 0.9, 0.9]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [-1.0, -4.0, -1.5]
+    point2 [-1.0, -4.0, -5.0]
+    point3 [1.0, 0.0, -1.5]
+  }
+  triangle {
+    material specular {
+       color [0.9, 0.9, 0.9]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [1.0, 0.0, -1.5]
+    point2 [1.0, 0.0, -5.0]
+    point3 [-1.0, -4.0, -5.0]
+  }
+  
+    triangle {
+    material specular {
+       color [0.9, 0.9, 0.9]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0,0.0]
+    point1 [-3.0, -3.0, -5.0]
+    point2 [-1.0, -4.0, -1.5]
+    point3 [-3.0, -3.0, -1.5]
+  }
+  triangle {
+    material specular {
+       color [0.9, 0.9, 0.9]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [-3.0, -3.0, -5.0]
+    point2 [-1.0, -4.0, -1.5]
+    point3 [-1.0, -4.0, -5.0]
+  }
+  
+  triangle {
+    material specular {
+       color [0.9, 0.9, 0.9]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [-1.0, 1.0, -5.0]
+    point2 [1.0, 0.0, -1.5]
+    point3 [1.0, 0.0, -5.0]
+  }
+  triangle {
+    material specular {
+       color [0.9, 0.9, 0.9]
+       Kd 0.1
+       Ka 0.4
+       Ks 0.6
+    }
+    normal [0.0, 0.0, 0.0]
+    point1 [-1.0, 1.0, -5.0]
+    point2 [1.0, 0.0, -1.5]
+    point3 [-1.0, 1.0, -1.5]
+  } 
+
+ 
+}
